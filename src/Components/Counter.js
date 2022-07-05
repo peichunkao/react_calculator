@@ -1,17 +1,31 @@
 import React, { useState } from 'react'
 import './Counter.css'
+import PropTypes from 'prop-types'
+import CounterButton from './CounterButton'
 
 const Counter = () => {
     const [counter, setCounter] = useState(0)
-    const increment = () => setCounter(counter + 1);
-    const counterStyle = { fontSize: "50px", padding: "15px 30px" };
+    const addingMethod = (addNum) => setCounter(counter + addNum);
+    const counterStyle = { fontSize: "50px", padding: "15px 30px", display:"block" };
 
     return (
         <div className='counter'>
-            <button onClick={increment}>+1</button>
+            {/* <button onClick={increment}>+1</button> */}
+            <CounterButton addingMethod={addingMethod} addNum={1} numString={"1"}/>
+            <CounterButton addingMethod={addingMethod} addNum={5} numString={"5"}/>
+            <CounterButton addingMethod={addingMethod} addNum={10} numString={"10"}/>
             <span style={counterStyle}>{counter}</span>
+            <button className='resetButton' onClick={()=>setCounter(0)}>Reset</button>
         </div>
     )
+}
+
+Counter.prototype = {
+    by: PropTypes.string
+}
+
+Counter.defaultProps = {
+    by: 4
 }
 
 export default Counter
