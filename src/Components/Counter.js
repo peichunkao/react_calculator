@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './Counter.css'
-import PropTypes from 'prop-types'
 import CounterButton from './CounterButton'
 
 const Counter = () => {
@@ -18,14 +17,6 @@ const Counter = () => {
             <button className='resetButton' onClick={()=>setCounter(0)}>Reset</button>
         </div>
     )
-}
-
-Counter.prototype = {
-    by: PropTypes.string
-}
-
-Counter.defaultProps = {
-    by: 4
 }
 
 export default Counter

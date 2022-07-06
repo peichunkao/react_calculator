@@ -1,6 +1,6 @@
 import React from 'react'
 import './CounterButton.css'
-
+import PropTypes from 'prop-types'
 const CounterButton = ({ addingMethod, addNum, numString }) => {
     // const counterStyle = { fontSize: "50px", padding: "15px 30px" };
     return (
@@ -11,4 +11,13 @@ const CounterButton = ({ addingMethod, addNum, numString }) => {
 
     )
 }
+CounterButton.prototype = {
+    by: PropTypes.string
+}
+
+CounterButton.defaultProps = {
+    by: 4
+}
+
+
 export default CounterButton
